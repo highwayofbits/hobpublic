@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block body %}
+<pre>
+Please enter the IP address with the mask, i.e. 192.168.1.3/30
+</pre>
+<form class="form-horizontal" action="/ipcalcs" method="POST">
+  <div class="form-group">
+    <div class="col-sm-8">
+      <input type="text" class="form-control input-lg" id="ipcalc_subnet" name='ipcalc_subnet' placeholder="192.168.1.3/30">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <button type="submit" class="btn btn-default">Calculate!</button>
+    </div>
+  </div>
+</form>
+
+{% if ipcalc_subnet %}
+
+<div class="container">
+<pre>
+<b><p style="color:#0093C2;">Data entered by the user: {{ipcalc_subnet}}</p></b>
+<b>Network Address:</b> {{network_address}}
+<b>Network Mask:</b> {{network_netmask}}
+<b>Broadcast Address:</b> {{network_broadcast}}
+<br/>
+<b>Number of usable hosts:</b> {{network_qty_hosts}}
+<b>Host Min:</b> {{network_hostmin}}
+<b>Host Max:</b> {{network_hostmax}}
+</pre>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
