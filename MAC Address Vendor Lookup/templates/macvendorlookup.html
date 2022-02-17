@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block body %}
+
+<pre>
+<b>Instructions:</b>
+Please enter a valid MAC address, i.e. FC:FB:FB:01:FA:21
+</pre>
+<form class="form-horizontal" action="/macresults" method="POST">
+  <div class="form-group">
+    <div class="col-sm-8">
+      <input type="text" class="form-control input-lg" id="mac" name='mac' placeholder="FC:FB:FB:01:FA:21">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <button type="submit" class="btn btn-default">Find Vendor</button>
+    </div>
+  </div>
+</form>
+
+{% if response %}
+
+<div class="container">
+<b><p style="color:#0093C2;">Vendor: {{response}}</p></b>
+</div>
+
+{% endif %}
+
+{% endblock %}
