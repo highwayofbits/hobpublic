@@ -1,0 +1,14 @@
+BGPneighTable:
+  set: protocols/bgp/group
+  key-field: group_name
+  view: BGPneighView
+
+BGPneighView:
+  fields:
+    group_name: name
+    group_type: type
+    group_peer_as: peer-as
+    group_local_as: local-as/as-number
+    neighbor_name: neighbor/name
+    local_address: neighbor/local-address
+
